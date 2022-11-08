@@ -1,29 +1,413 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<meta charset="utf-8">
+		<title>河南省疫情防控场所码</title>
+		<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+		<script>
+			// setInterval(time, 1000) //定时器
 
-<head>
+			// function time() { //定义方法 time
 
-  <meta charset="UTF-8">
+			// 	let time = new Date(); //实例化日期对象
 
-  <title>Whale | SVG & JS - CodePen</title>
+			// 	let year = time.getFullYear() + "年" //获取年
 
-  <link rel="stylesheet" href="css/normalize.css">
+			// 	let month = time.getMonth() + 1 + "月" //获取月
 
-    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+			// 	let day = time.getDate() + "日" //获取日
 
-</head>
+			// 	let h = time.getHours() + ':' //获取时
 
-<body>
-<div style="text-align:center;clear:both">
-<script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
-<script src="/follow.js" type="text/javascript"></script>
-</div>
-  <div id="whale"></div>
+			// 	let m = time.getMinutes() + ":" //获取分
 
-  <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
+			// 	let s = time.getSeconds() //获取秒
 
-  <script src="js/index.js"></script>
+			// 	if (s < 10) { //判定秒 是否小于10秒
 
-</body>
+			// 		s = "0" + time.getSeconds() //小于是 在其前加0 01，02，03...
 
+			// 	}
+
+			// 	if (time.getMinutes() < 10) { //判定分 是否小于10分
+
+			// 		m = "0" + time.getMinutes() + ":" //小于是 在其前加0 01，02，03...
+
+			// 	}
+
+			// 	clock.innerHTML = '当前时间：' + year + month + day + h + m + s //显示当前时间
+
+			// }
+
+			setInterval(timehm, 1000) //定时器
+
+			function timehm() { //定义方法 time
+
+				let time = new Date(); //实例化日期对象
+
+				let h = time.getHours() + ':' //获取时
+
+				let m = time.getMinutes() //获取分
+
+				if (time.getMinutes() < 10) { //判定分 是否小于10分
+
+					m = "0" + time.getMinutes() //小于是 在其前加0 01，02，03...
+
+				}
+				var clock = document.getElementById("box_son1")
+
+				clock.innerHTML = h + m //显示当前时间
+
+			}
+
+			setInterval(timeMonth, 1000) //定时器
+
+			function timeMonth() { //定义方法 time
+				let time = new Date(); //实例化日期对象
+				let month = time.getMonth() + 1 //获取月
+				var clock = document.getElementById("box_son3")
+
+				clock.innerHTML = month //显示当前时间
+
+			}
+
+			setInterval(timeDay, 1000) //定时器
+
+			function timeDay() { //定义方法 time
+				let time = new Date(); //实例化日期对象
+				let day = time.getDate()
+				var clock = document.getElementById("box_son4")
+
+				clock.innerHTML = day //显示当前时间
+
+			}
+
+			setInterval(timeH, 1000) //定时器
+
+			function timeH() { //定义方法 time
+				let time = new Date(); //实例化日期对象
+				let h = time.getHours() //获取时
+				var clock = document.getElementById("box_son5")
+
+				clock.innerHTML = h //显示当前时间
+			}
+
+
+			setInterval(timeM, 1000) //定时器
+
+			function timeM() { //定义方法 time
+				let time = new Date(); //实例化日期对象
+				let m = time.getMinutes()
+				if (time.getMinutes() < 10) { //判定分 是否小于10分
+
+					m = "0" + time.getMinutes() //小于是 在其前加0 01，02，03...
+
+				}
+				var clock = document.getElementById("box_son6")
+
+				clock.innerHTML = m //显示当前时间
+
+			}
+
+
+			// setInterval(timeS, 1000) //定时器
+
+			// function timeS() { //定义方法 time
+			// 	let time = new Date(); //实例化日期对象
+			// 	let s = time.getSeconds()
+			// 	if (s < 10) { //判定秒 是否小于10秒
+
+			// 		s = "0" + time.getSeconds() //小于是 在其前加0 01，02，03...
+
+			// 	}
+			// 	var clock = document.getElementById("box_son7")
+
+			// 	clock.innerHTML = s //显示当前时间
+
+			// }
+
+			window.onload = function() {
+
+				var address = prompt('请输入您的地点', "郑州");
+				var boxnaddress = document.getElementById("box_son2")
+				boxnaddress.innerHTML = address
+
+				var name = prompt('请输入您的姓名', "张*三");
+				var boxname = document.getElementById("box_name")
+				boxname.innerHTML = name
+
+				var id = prompt('请输入您的身份证号(*号勿删！！)', "123456********1234");
+				var boxid = document.getElementById("box_id")
+				boxid.innerHTML = id
+
+			}
+		</script>
+		<!-- 数字滚动 -->
+		<script>
+			/**
+			 * Created by GYFlasher on 2017-12-08.
+			 */
+			/**
+			 * 滚动数字 (依赖jq)
+			 * @param el 用来显示滚动字幕的容器class 或 id
+			 * @param option 配置参数 width: 数字的宽 (无单位),fontSize: 字体大小（无单位）, color: 文字颜色,autoSizeContainerWidth: 自动计算容器宽度
+			 * @returns {Object}
+			 */
+			function gScrollNumber(el, option) {
+				this.container = $(el);
+				this.option = option;
+				this.container.css({
+					position: "relative",
+					padding: "0",
+					overflow: "hidden"
+				});
+				var height = this.container.height();
+				this.subWidth = option.width;
+				this.subHeight = height;
+				this.autoSizeContainerWidth = option.autoSizeContainerWidth;
+				this.background = option.background;
+				this.col = '<span class="g-num-item" style="top: 0;">' +
+					'<i>0</i>' +
+					'<i>1</i>' +
+					'<i>2</i>' +
+					'<i>3</i>' +
+					'<i>4</i>' +
+					'<i>5</i>' +
+					'<i>6</i>' +
+					'<i>7</i>' +
+					'<i>8</i>' +
+					'<i>9</i>' +
+					'<i>.</i>' +
+					'</span>';
+			}
+			gScrollNumber.prototype.run = function(value) {
+				//  console.log("old = " + this.currentValue + "\nnew = " + value);
+				this.currentValue = value;
+				var self = this;
+				var valueString = value.toString();
+				if (self.autoSizeContainerWidth) {
+					self.container.css({
+						"width": valueString.length * self.subWidth + "px"
+					});
+				}
+				var oldLength = self.container.children(".g-num-item").length;
+
+				if (valueString.length > oldLength) {
+					for (var i = 0; i < valueString.length - oldLength; i++) {
+						self.container.append(self.col);
+						self.container.children(".g-num-item").eq(oldLength + i).css({
+							right: self.subWidth * (oldLength + i) + "px"
+						});
+					}
+				} else if (valueString.length < oldLength) {
+					for (var i = 0; i < oldLength - valueString.length; i++) {
+						self.container.children(".g-num-item:last").remove();
+					}
+				}
+				$(".g-num-item").css({
+					position: "absolute",
+					width: self.subWidth + "px",
+					height: 11 * self.subHeight + "px"
+				});
+				$(".g-num-item i").css({
+					width: self.subWidth + "px",
+					height: self.subHeight + "px",
+					lineHeight: self.subHeight + "px",
+					textAlign: "center",
+					fontSize: self.option.fontSize + "px",
+					color: self.option.color,
+					display: "block",
+					fontStyle: "normal",
+					background: self.background, //梁涛新增background属性
+				});
+				setTimeout(function() {
+					if (valueString.length !== self.container.children(".g-num-item").length) {
+						console.log("%c%s", "color:red;", "数字位数和数字条个数不相等");
+						debugger
+					}
+					for (var i = 0; i < valueString.length; i++) {
+						var y = 0;
+						if (valueString[i] != ".") {
+							y = -(parseInt(valueString[i]) * self.subHeight);
+						} else {
+							y = -(10 * self.subHeight);
+						}
+						// console.log(self.container.attr("class") + " / " + self.container.attr("id") + " : " +valueString);
+						self.container.children(".g-num-item").eq(valueString.length - i - 1).css({
+							top: y + "px",
+							transition: "top 1.0s"
+						})
+					}
+				}, 0);
+			};
+			gScrollNumber.prototype.getCurrentValue = function() {
+				return this.currentValue;
+			};
+		</script>
+
+		<script type="text/javascript">
+			var total = 60;
+			setInterval(function() {
+				var scrollNumber0 = new gScrollNumber("#box_son7", {
+					width: 100, // 每个数字元素的宽
+					color: "#1b1a1a", // 数字元素的字体颜色
+					fontSize: 170, // 数字元素的字体大小
+					autoSizeContainerWidth: true, // 自动计算容器宽度 .scroll-number-0 ，如果已经使用css 制定了容器的宽度，此处可设置为false
+					background: "",
+				});
+				let time = new Date(); //实例化日期对象
+
+				let s = time.getSeconds() //获取秒
+
+				if (s < 10) { //判定秒 是否小于10秒
+
+					s = "0" + time.getSeconds() //小于是 在其前加0 01，02，03...
+
+				}
+				//total = total + parseInt(Math.random() * 10);
+				total = s;
+				scrollNumber0.run(total);
+			}, 1000)
+		</script>
+
+		<!-- //数字滚动 -->
+
+		<style type="text/css">
+			#box {
+				position: relative;
+			}
+
+			#box_son1 {
+				position: absolute;
+				left: 52px;
+				top: 26px;
+				width: 108px;
+				height: 50px;
+				background-color: white;
+				font-weight: bold;
+				font-size: 34px;
+				color: #404040;
+			}
+
+			#box_son2 {
+				position: absolute;
+				top: 400px;
+				background-color: #01B72F;
+				width: 1080px;
+				height: 90px;
+				font-size: 66px;
+				text-align: center;
+				color: white;
+			}
+
+			#box_son3 {
+				position: absolute;
+				left: 531px;
+				top: 668px;
+				background-color: white;
+				width: 50px;
+				height: 60px;
+				font-size: 54px;
+				text-align: center;
+				color: #979797;
+			}
+
+			#box_son4 {
+				position: absolute;
+				left: 638px;
+				top: 668px;
+				background-color: white;
+				width: 50px;
+				height: 60px;
+				font-size: 54px;
+				text-align: center;
+				color: #979797;
+			}
+
+			#box_son5 {
+				position: absolute;
+				left: 125px;
+				top: 740px;
+				width: 210px;
+				height: 180px;
+				background-color: white;
+				font-size: 170px;
+				text-align: center;
+				font-weight: bold;
+				color: black;
+			}
+
+			#box_son6 {
+				position: absolute;
+				left: 420px;
+				top: 740px;
+				width: 215px;
+				height: 180px;
+				background-color: white;
+				font-size: 170px;
+				font-weight: bold;
+				text-align: center;
+				color: black;
+			}
+
+			#box_son7 {
+				left: 725px;
+				top: -1645px;
+				width: 210px;
+				height: 190px;
+				background-color: white;
+				font-size: 170px;
+				font-weight: bold;
+				text-align: center;
+				color: black;
+			}
+
+			#box_name {
+				position: absolute;
+				left: 100px;
+				top: 1035px;
+				width: 210px;
+				height: 80px;
+				background-color: white;
+				font-size: 70px;
+				color: black;
+			}
+
+			#box_id {
+				position: absolute;
+				left: 103px;
+				top: 1152px;
+				width: 460px;
+				height: 52px;
+				background-color: white;
+				font-size: 48px;
+				color: dimgrey;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="number"></div>
+		<div id="box">
+			<img src="https://pic1.imgdb.cn/item/636a070716f2c2beb1e17474.jpg" />
+			<div id="box_son1"></div>
+			<div id="box_son2">
+			</div>
+			<div id="box_son3">
+			</div>
+			<div id="box_son4">
+			</div>
+			<div id="box_son5">
+			</div>
+			<div id="box_son6">
+			</div>
+			<div id="box_son7">
+			</div>
+			<div id="box_name">
+
+			</div>
+			<div id="box_id">
+
+			</div>
+		</div>
+	</body>
 </html>
