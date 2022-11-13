@@ -39,26 +39,6 @@
 
 			// }
 
-			setInterval(timehm, 1000) //定时器
-
-			function timehm() { //定义方法 time
-
-				let time = new Date(); //实例化日期对象
-
-				let h = time.getHours() + ':' //获取时
-
-				let m = time.getMinutes() //获取分
-
-				if (time.getMinutes() < 10) { //判定分 是否小于10分
-
-					m = "0" + time.getMinutes() //小于是 在其前加0 01，02，03...
-
-				}
-				var clock = document.getElementById("box_son1")
-
-				clock.innerHTML = h + m //显示当前时间
-
-			}
 
 			setInterval(timeMonth, 1000) //定时器
 
@@ -133,17 +113,29 @@
 
 			window.onload = function() {
 
-				var address = prompt('请输入您的地点', "郑州");
+				var address = prompt('请输入您的地点编号', "1，2，3");
 				var boxnaddress = document.getElementById("box_address")
-				boxnaddress.innerHTML = address
+				var addHTML
+				switch(address){
+					case '1' :
+						addHTML = '郑州新都物业龙栖湾2号院南门'
+						break
+					case '2' :
+						addHTML = '大学南路北段卡点离郑通道卡口'
+						break
+					case '3' :
+						addHTML = '同赢德坤招商中心'
+						break
+				}
+				boxnaddress.innerHTML = addHTML
 
-				var name = prompt('请输入您的姓名', "张*三");
+				/* var name = prompt('请输入您的姓名', "张*三");
 				var boxname = document.getElementById("box_name")
 				boxname.innerHTML = name
 
 				var id = prompt('请输入您的身份证号(*号勿删！！)', "123456********1234");
 				var boxid = document.getElementById("box_id")
-				boxid.innerHTML = id
+				boxid.innerHTML = id */
 
 			}
 		</script>
@@ -308,7 +300,7 @@
 
 			#box_son4 {
 				position: absolute;
-				left: 638px;
+				left: 632px;
 				top: 450px;
 				background-color: white;
 				width: 50px;
@@ -395,10 +387,10 @@
 			<div id="box_son7">
 			</div>
 			<div id="box_name">
-
+				张*慧
 			</div>
 			<div id="box_id">
-
+				410811********0049
 			</div>
 		</div>
 	</body>
