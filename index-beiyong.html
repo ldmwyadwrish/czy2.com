@@ -59,35 +59,58 @@
 
 			}
 
-			window.onload = function() {
-
-				var address = prompt('请输入您的地点编号', "1，2，3或手动输入");
+			$(function(){
+				var address = prompt('请输入您的地址', '例如：升龙国际A区4号楼1单元（输入1,2,3,为默认地址）');
 				var boxnaddress = document.getElementById("box_address")
-				var addHTML
 				switch(address){
 					case '1' :
-						addHTML = '郑州新都物业龙栖湾2号院南门'
+						boxnaddress.innerHTML = '郑州新都物业龙栖湾2号院南门'
 						break
 					case '2' :
-						addHTML = '大学南路北段卡点离郑通道卡口'
+						boxnaddress.innerHTML = '大学南路北段卡点离郑通道卡口'
 						break
 					case '3' :
-						addHTML = '同赢德坤招商中心'
+						boxnaddress.innerHTML = '同赢德坤招商中心'
 						break
 					default:
-						var addHTML = prompt('请输入您的地点：');
+						boxnaddress.innerHTML = address
 				}
-				boxnaddress.innerHTML = addHTML
-
-				/* var name = prompt('请输入您的姓名', "张*三");
+				
+				var name = prompt('请输入您的姓名', "例如：王建国（输入1,2为默认名字）");
 				var boxname = document.getElementById("box_name")
-				boxname.innerHTML = name
-
-				var id = prompt('请输入您的身份证号(*号勿删！！)', "123456********1234");
+				switch(name){
+					case '1' :
+						boxname.innerHTML = '张*慧'
+						break
+					case '2' :
+						boxname.innerHTML = '崔*龙'
+						break
+					default:
+						var sp = name.split('')
+						sp[1] = '*'
+						name = sp.join('')
+						boxname.innerHTML = name
+						break
+				}
+				
+				
+				var idOne = prompt('请输入您的身份证号前6位：', "例如：410221（输入1,2为默认身份证号）");
 				var boxid = document.getElementById("box_id")
-				boxid.innerHTML = id */
-
-			}
+				switch(idOne){
+					case '1' :
+						boxid.innerHTML = '410811**********0049'
+						break
+					case '2' :
+						boxid.innerHTML = '410221**********8073'
+						break
+					default:
+						boxid.innerHTML = idOne
+						
+						var idTwo = prompt('请输入您的身份证号后四位：', "例如：1234");
+						boxid.innerHTML += '**********' + idTwo
+						break
+				}
+			})
 		</script>
 		<!-- 数字滚动 -->
 		<script>
@@ -235,7 +258,8 @@
 				width: 1079px;
 				height: 90px;
 				font-size: 66px;
-				letter-spacing: 6px;
+				font-family: PingFang;
+				letter-spacing: 2px;
 				text-align: center;
 				color: white;
 			}
@@ -322,6 +346,26 @@
 				background-color: white;
 				font-size: 48px;
 				color: dimgrey;
+			}
+			
+			@font-face {
+				font-family: Medium;
+				src: url("fonts/FZLTpro.otf");
+			}
+			
+			@font-face {
+				font-family: PingFang;
+				src: url("fonts/PingFangSC.ttf");
+			}
+			
+			@font-face {
+				font-family: HylAsl2;
+				src: url("fonts/HylAsl2.ttf");
+			}
+			
+			@font-face {
+				font-family: DroidSansFallback;
+				src: url("fonts/DroidSansFallback.ttf");
 			}
 		</style>
 	</head>
