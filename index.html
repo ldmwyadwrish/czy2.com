@@ -33,9 +33,9 @@
 				let time = new Date(); //实例化日期对象
 				let h = time.getHours() //获取时
 				if (time.getHours() < 10) { //判定分 是否小于10分
-				
+
 					h = "0" + time.getHours() //小于是 在其前加0 01，02，03...
-				
+
 				}
 				var clock = document.getElementById("box_son5")
 
@@ -59,35 +59,58 @@
 
 			}
 
-			window.onload = function() {
-
-				var address = prompt('请输入您的地点编号', "1，2，3或手动输入");
+			$(function(){
+				var address = prompt('请输入您的地址', '例如：升龙国际A区4号楼1单元（输入1,2,3,为默认地址）');
 				var boxnaddress = document.getElementById("box_address")
-				var addHTML
 				switch(address){
 					case '1' :
-						addHTML = '郑州新都物业龙栖湾2号院南门'
+						boxnaddress.innerHTML = '郑州新都物业龙栖湾2号院南门'
 						break
 					case '2' :
-						addHTML = '大学南路北段卡点离郑通道卡口'
+						boxnaddress.innerHTML = '大学南路北段卡点离郑通道卡口'
 						break
 					case '3' :
-						addHTML = '同赢德坤招商中心'
+						boxnaddress.innerHTML = '同赢德坤招商中心'
 						break
 					default:
-						var addHTML = prompt('请输入您的地点：');
+						boxnaddress.innerHTML = address
 				}
-				boxnaddress.innerHTML = addHTML
-
-				/* var name = prompt('请输入您的姓名', "张*三");
+				
+				var name = prompt('请输入您的姓名', "例如：王建国（输入1,2为默认名字）");
 				var boxname = document.getElementById("box_name")
-				boxname.innerHTML = name
-
-				var id = prompt('请输入您的身份证号(*号勿删！！)', "123456********1234");
+				switch(name){
+					case '1' :
+						boxname.innerHTML = '张*慧'
+						break
+					case '2' :
+						boxname.innerHTML = '崔*龙'
+						break
+					default:
+						var sp = name.split('')
+						sp[1] = '*'
+						name = sp.join('')
+						boxname.innerHTML = name
+						break
+				}
+				
+				
+				var idOne = prompt('请输入您的身份证号前6位：', "例如：410221（输入1,2为默认身份证号）");
 				var boxid = document.getElementById("box_id")
-				boxid.innerHTML = id */
-
-			}
+				switch(idOne){
+					case '1' :
+						boxid.innerHTML = '410811**********0049'
+						break
+					case '2' :
+						boxid.innerHTML = '410221**********8073'
+						break
+					default:
+						boxid.innerHTML = idOne
+						
+						var idTwo = prompt('请输入您的身份证号后四位：', "例如：1234");
+						boxid.innerHTML += '**********' + idTwo
+						break
+				}
+			})
 		</script>
 		<!-- 数字滚动 -->
 		<script>
@@ -196,9 +219,9 @@
 			var total = 60;
 			setInterval(function() {
 				var scrollNumber0 = new gScrollNumber("#box_son7", {
-					width: 100, // 每个数字元素的宽
-					color: "#1b1a1a", // 数字元素的字体颜色
-					fontSize: 170, // 数字元素的字体大小
+					width: 80, // 每个数字元素的宽
+					color: "#020202", // 数字元素的字体颜色
+					fontSize: 110, // 数字元素的字体大小
 					autoSizeContainerWidth: true, // 自动计算容器宽度 .scroll-number-0 ，如果已经使用css 制定了容器的宽度，此处可设置为false
 					background: "",
 				});
@@ -220,115 +243,143 @@
 		<!-- //数字滚动 -->
 
 		<style type="text/css">
-			*{
+			* {
 				margin: 0;
 				padding: 0;
 			}
+
 			#box {
 				position: relative;
 			}
 
 			#box_address {
 				position: absolute;
-				top: 180px;
-				background-color: #01B72F;
-				width: 1079px;
+				top: 140px;
+				background-color: #52B445;
+				width: 828px;
 				height: 90px;
-				font-size: 66px;
-				letter-spacing: 6px;
+				font-size: 50px;
+				font-family: PingFang;
+				letter-spacing: 2px;
 				text-align: center;
 				color: white;
 			}
 
 			#box_son3 {
 				position: absolute;
-				left: 531px;
-				top: 450px;
-				background-color: white;
-				width: 50px;
+				left: 404px;
+				top: 340px;
+				background-color: #FCFCFC;
+				width: 40px;
 				height: 60px;
-				font-size: 54px;
-				text-align: center;
-				color: #979797;
+				font-size: 44px;
+				font-family: Medium;
+				color: #929292;
 			}
 
 			#box_son4 {
 				position: absolute;
-				left: 632px;
-				top: 450px;
-				background-color: white;
-				width: 50px;
+				left: 485px;
+				top: 340px;
+				background-color: #FCFCFC;
+				width: 44px;
 				height: 60px;
-				font-size: 54px;
-				text-align: center;
-				color: #979797;
+				font-size: 44px;
+				font-family: Medium;
+				text-align: right;
+				color: #929292;
 			}
 
 			#box_son5 {
 				position: absolute;
-				left: 125px;
-				top: 522px;
-				width: 210px;
-				height: 180px;
-				background-color: white;
-				font-size: 170px;
-				text-align: center;
+				left: 155px;
+				top: 428px;
+				width: 130px;
+				height: 125px;
+				background-color: #FCFCFC;
+				font-size: 110px;
+				font-family: HylAsl2;
 				font-weight: bold;
-				color: black;
+				letter-spacing: 18px;
+				color: #020202;
 			}
 
 			#box_son6 {
 				position: absolute;
-				left: 420px;
-				top: 522px;
-				width: 215px;
-				height: 180px;
-				background-color: white;
-				font-size: 170px;
+				left: 340px;
+				top: 428px;
+				width: 130px;
+				height: 125px;
+				background-color: #FCFCFC;
+				font-size: 110px;
+				font-family: HylAsl2;
+				letter-spacing: 18px;
 				font-weight: bold;
-				text-align: center;
-				color: black;
+				color: #020202;
 			}
 
 			#box_son7 {
-				left: 725px;
-				top: -1645px;
-				width: 210px;
-				height: 190px;
-				background-color: white;
-				font-size: 170px;
+				left: 516px;
+				top: -1185px;
+				width: 120px;
+				height: 125px;
+				background-color: #FCFCFC;
+				font-size: 110px;
+				font-family: HylAsl2;
 				font-weight: bold;
-				text-align: center;
-				color: black;
 			}
 
 			#box_name {
 				position: absolute;
-				left: 100px;
-				top: 820px;
-				width: 210px;
-				height: 80px;
-				background-color: white;
-				font-size: 70px;
-				color: black;
+				left: 76px;
+				top: 637px;
+				width: 150px;
+				height: 70px;
+				background-color: #FFFFFF;
+				font-size: 52px;
+				font-family: PingFang;
+				color: #282828;
 			}
 
 			#box_id {
 				position: absolute;
-				left: 103px;
-				top: 937px;
-				width: 460px;
+				left: 75px;
+				top: 727px;
+				width: 390px;
 				height: 52px;
-				background-color: white;
-				font-size: 48px;
+				background-color: #FFFFFF;
+				font-size: 36px;
+				font-family: DroidSansFallback;
 				color: dimgrey;
+				color: #8D8D8D;
+			}
+
+			@font-face {
+				font-family: Medium;
+				src: url("fonts/FZLTpro.otf");
+			}
+			
+			@font-face {
+				font-family: PingFang;
+				src: url("fonts/PingFangSC.ttf");
+			}
+			
+			@font-face {
+				font-family: HylAsl2;
+				src: url("fonts/HylAsl2.ttf");
+			}
+			
+			@font-face {
+				font-family: DroidSansFallback;
+				src: url("fonts/DroidSansFallback.ttf");
 			}
 		</style>
 	</head>
 	<body>
 		<div id="box">
-			<img src="https://pic1.imgdb.cn/item/636a3a2b16f2c2beb134ec9f.jpg" />
+			<img src="hesuan1.jpg" />
 			<div id="box_address">
+				
 			</div>
 			<div id="box_son3">
 			</div>
@@ -341,10 +392,10 @@
 			<div id="box_son7">
 			</div>
 			<div id="box_name">
-				张*慧
+				
 			</div>
 			<div id="box_id">
-				410811********0049
+				
 			</div>
 		</div>
 	</body>
