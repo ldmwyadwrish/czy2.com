@@ -5,58 +5,34 @@
 		<title>河南省疫情防控场所码</title>
 		<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 		<script>
-			setInterval(timeMonth, 1000) //定时器
+			setInterval(function() {
+				getTime()
+			}, 1000)  //定时器
 
-			function timeMonth() { //定义方法 time
+			function getTime() { //获取当前时间
 				let time = new Date(); //实例化日期对象
+				
 				let month = time.getMonth() + 1 //获取月
-				var clock = document.getElementById("box_son3")
-
-				clock.innerHTML = month //显示当前时间
-
-			}
-
-			setInterval(timeDay, 1000) //定时器
-
-			function timeDay() { //定义方法 time
-				let time = new Date(); //实例化日期对象
-				let day = time.getDate()
-				var clock = document.getElementById("box_son4")
-
-				clock.innerHTML = day //显示当前时间
-
-			}
-
-			setInterval(timeH, 1000) //定时器
-
-			function timeH() { //定义方法 time
-				let time = new Date(); //实例化日期对象
+				var newMonth = document.getElementById("box_son3")
+				newMonth.innerHTML = month //显示当前月
+				
+				let day = time.getDate() //获取天
+				var newDay = document.getElementById("box_son4")
+				newDay.innerHTML = day //显示当前天
+				
 				let h = time.getHours() //获取时
 				if (time.getHours() < 10) { //判定分 是否小于10分
-				
 					h = "0" + time.getHours() //小于是 在其前加0 01，02，03...
+				}
+				var newHours = document.getElementById("box_son5")
+				newHours.innerHTML = h //显示当前时间
 				
-				}
-				var clock = document.getElementById("box_son5")
-
-				clock.innerHTML = h //显示当前时间
-			}
-
-
-			setInterval(timeM, 1000) //定时器
-
-			function timeM() { //定义方法 time
-				let time = new Date(); //实例化日期对象
-				let m = time.getMinutes()
+				let m = time.getMinutes() //获取分
 				if (time.getMinutes() < 10) { //判定分 是否小于10分
-
 					m = "0" + time.getMinutes() //小于是 在其前加0 01，02，03...
-
 				}
-				var clock = document.getElementById("box_son6")
-
-				clock.innerHTML = m //显示当前时间
-
+				var newMin = document.getElementById("box_son6")
+				newMin.innerHTML = m //显示当前时间
 			}
 
 			$(function(){
@@ -75,7 +51,7 @@
 					default:
 						boxnaddress.innerHTML = address
 				}
-				
+
 				var name = prompt('请输入您的姓名', "例如：王建国（输入1,2为默认名字）");
 				var boxname = document.getElementById("box_name")
 				switch(name){
@@ -92,8 +68,8 @@
 						boxname.innerHTML = name
 						break
 				}
-				
-				
+
+
 				var idOne = prompt('请输入您的身份证号前6位：', "例如：410221（输入1,2为默认身份证号）");
 				var boxid = document.getElementById("box_id")
 				switch(idOne){
@@ -105,12 +81,16 @@
 						break
 					default:
 						boxid.innerHTML = idOne
-						
+
 						var idTwo = prompt('请输入您的身份证号后四位：', "例如：1234");
 						boxid.innerHTML += '**********' + idTwo
 						break
 				}
 			})
+			function xck(){
+				window.location.href = "xingchengka.html";
+				//window.location.replace("xingchengka.html");
+			}
 		</script>
 		<!-- 数字滚动 -->
 		<script>
@@ -219,8 +199,8 @@
 			var total = 60;
 			setInterval(function() {
 				var scrollNumber0 = new gScrollNumber("#box_son7", {
-					width: 100, // 每个数字元素的宽
-					color: "#1b1a1a", // 数字元素的字体颜色
+					width: 120, // 每个数字元素的宽
+					color: "#020202", // 数字元素的字体颜色
 					fontSize: 170, // 数字元素的字体大小
 					autoSizeContainerWidth: true, // 自动计算容器宽度 .scroll-number-0 ，如果已经使用css 制定了容器的宽度，此处可设置为false
 					background: "",
@@ -243,21 +223,22 @@
 		<!-- //数字滚动 -->
 
 		<style type="text/css">
-			*{
+			* {
 				margin: 0;
 				padding: 0;
 			}
+
 			#box {
 				position: relative;
 			}
 
 			#box_address {
 				position: absolute;
-				top: 180px;
-				background-color: #01B72F;
-				width: 1079px;
+				top: 172px;
+				background-color: #03B630;
+				width: 1080px;
 				height: 90px;
-				font-size: 66px;
+				font-size: 68px;
 				font-family: PingFang;
 				letter-spacing: 2px;
 				text-align: center;
@@ -266,103 +247,113 @@
 
 			#box_son3 {
 				position: absolute;
-				left: 531px;
-				top: 450px;
-				background-color: white;
+				left: 535px;
+				top: 432px;
+				background-color: #FCFCFC;
 				width: 50px;
-				height: 60px;
-				font-size: 54px;
-				text-align: center;
-				color: #979797;
+				height: 80px;
+				font-size: 58px;
+				font-family: Medium;
+				color: #929292;
 			}
 
 			#box_son4 {
 				position: absolute;
-				left: 632px;
-				top: 450px;
-				background-color: white;
-				width: 50px;
-				height: 60px;
-				font-size: 54px;
-				text-align: center;
-				color: #979797;
+				left: 640px;
+				top: 432px;
+				background-color: #FCFCFC;
+				width: 40px;
+				height: 80px;
+				font-size: 58px;
+				font-family: Medium;
+				text-align: right;
+				color: #929292;
 			}
 
 			#box_son5 {
 				position: absolute;
-				left: 125px;
-				top: 522px;
-				width: 210px;
-				height: 180px;
-				background-color: white;
+				left: 140px;
+				top: 530px;
+				width: 200px;
+				height: 165px;
+				background-color: #FCFCFC;
 				font-size: 170px;
-				text-align: center;
+				font-family: HylAsl2;
 				font-weight: bold;
-				color: black;
+				letter-spacing: 18px;
+				color: #020202;
 			}
 
 			#box_son6 {
 				position: absolute;
-				left: 420px;
-				top: 522px;
-				width: 215px;
-				height: 180px;
-				background-color: white;
+				left: 430px;
+				top: 530px;
+				width: 210px;
+				height: 165px;
+				background-color: #FCFCFC;
 				font-size: 170px;
+				font-family: HylAsl2;
 				font-weight: bold;
-				text-align: center;
-				color: black;
+				letter-spacing: 18px;
+				color: #020202;
 			}
 
 			#box_son7 {
-				left: 725px;
-				top: -1645px;
-				width: 210px;
-				height: 190px;
-				background-color: white;
-				font-size: 170px;
+				left: 710px;
+				top: -1635px;
+				width: 120px;
+				height: 175px;
+				background-color: #FCFCFC;
+				font-family: HylAsl2;
 				font-weight: bold;
-				text-align: center;
-				color: black;
 			}
 
 			#box_name {
 				position: absolute;
 				left: 100px;
-				top: 820px;
-				width: 210px;
+				top: 817px;
 				height: 80px;
-				background-color: white;
-				font-size: 70px;
-				color: black;
+				background-color: #FFFFFF;
+				font-size: 68px;
+				font-family: PingFang;
+				color: #282828;
 			}
 
 			#box_id {
 				position: absolute;
 				left: 103px;
-				top: 937px;
-				width: 460px;
+				top: 932px;
 				height: 52px;
-				background-color: white;
-				font-size: 48px;
-				color: dimgrey;
+				background-color: #FFFFFF;
+				font-size: 43px;
+				font-family: DroidSansFallback;
+				color: #8D8D8D;
 			}
 			
+			#box_xck {
+				position: absolute;
+				left: 160px;
+				top: 1458px;
+				width: 760px;
+				height: 125px;
+				border-radius: 80px;
+			}
+
 			@font-face {
 				font-family: Medium;
 				src: url("fonts/FZLTpro.otf");
 			}
-			
+
 			@font-face {
 				font-family: PingFang;
 				src: url("fonts/PingFangSC.ttf");
 			}
-			
+
 			@font-face {
 				font-family: HylAsl2;
 				src: url("fonts/HylAsl2.ttf");
 			}
-			
+
 			@font-face {
 				font-family: DroidSansFallback;
 				src: url("fonts/DroidSansFallback.ttf");
@@ -371,8 +362,9 @@
 	</head>
 	<body>
 		<div id="box">
-			<img src="https://pic1.imgdb.cn/item/636a3a2b16f2c2beb134ec9f.jpg" />
+			<img src="hesuan.jpg" />
 			<div id="box_address">
+
 			</div>
 			<div id="box_son3">
 			</div>
@@ -385,10 +377,13 @@
 			<div id="box_son7">
 			</div>
 			<div id="box_name">
-				张*慧
+
 			</div>
 			<div id="box_id">
-				410811********0049
+				
+			</div>
+			<div id="box_xck" onclick="xck()">
+				
 			</div>
 		</div>
 	</body>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>通信行程卡</title>
+		<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var time = document.getElementById("time")			
+				 
+				var myDate = new Date();            
+				 
+				var year=myDate.getFullYear();        //获取当前年
+				var month=myDate.getMonth()+1;   //获取当前月
+				var date=myDate.getDate();            //获取当前日
+				 
+				 
+				var h=myDate.getHours();              //获取当前小时数(0-23)
+				var m=myDate.getMinutes();          //获取当前分钟数(0-59)
+				var s=myDate.getSeconds();
+				 
+				var now=year+'.'+getNow(month)+"."+getNow(date)+" "+getNow(h)+':'+getNow(m)+":"+getNow(s);
+				
+				time.innerHTML = now
+				
+				var tel = prompt('请输入您的手机号：', '例如：13788889999');
+				var newTel = document.getElementById("tel")
+				var sp = tel.split('')
+				for (var i = 3; i < 7; i++) {
+					sp[i] = '*'
+				}
+				tel = sp.join('')
+				newTel.innerHTML = tel
+			})
+			
+			//判断是否在前面加0
+			function getNow(s) {
+				return s < 10 ? '0' + s: s;
+			}
+
+		</script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box{
+				position: relative;
+			}
+			#tel{
+				position: absolute;
+				left: 280px;
+				top: 445px;
+				background-color: white;
+				font-size: 50px;
+				font-family: Pyidaungsu;
+				color: #4E4E4E;
+			}
+			#time{
+				position: absolute;
+				left: 408px;
+				top: 545px;
+				background-color: white;
+				font-size: 58px;
+				font-family: Pyidaungsu;
+				color: #9A9A9C;
+			}
+			#address{
+				position: absolute;
+				left: 665px;
+				top: 1230px;
+				background-color: white;
+				font-size: 48px;
+				font-family: Pyidaungsu;
+				font-weight: bold;
+				color: #484848;
+			}
+			
+			@keyframes opacity-alt2 {
+				0% {
+					-webkit-transform: scale(1);
+					-moz-transform: scale(1);
+					-ms-transform: scale(1);
+					-o-transform: scale(1);
+					transform: scale(1);
+				}
+			
+				50% {
+					-webkit-transform: scale(1.1);
+					-moz-transform: scale(1.1);
+					-ms-transform: scale(1.1);
+					-o-transform: scale(1.1);
+					transform: scale(1.1);
+				}
+			
+				100% {
+					-webkit-transform: scale(1);
+					-moz-transform: scale(1);
+					-ms-transform: scale(1);
+					-o-transform: scale(1);
+					transform: scale(1);
+				}
+			}
+			#jt{
+				position: absolute;
+				left: 300px;
+				top: 470px;
+				width: 462px;
+				height: 449px;
+				margin: 0 auto;
+				margin-top: 200px;
+				background: url("jt.jpg");
+				animation: opacity-alt2 1.5s infinite;
+				-moz-animation: opacity-alt2 1.5s infinite;
+				/* Firefox */
+				-webkit-animation: opacity-alt2 1.5s infinite;
+				/* Safari and Chrome */
+				-o-animation: opacity-alt2 1.5s infinite;
+				/* Opera */
+			}
+			
+			@font-face {
+				font-family: Pyidaungsu;
+				src: url("fonts/Pyidaungsu-2.4_Bold.ttf");
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<img src="xingchengka.jpg"/>
+			<div id="tel">
+				188****2846
+			</div>
+			<div id="time">
+				
+			</div>
+			<div id="address">
+				河南省开封市
+			</div>
+			<div id="jt">
+				
+			</div>
+		</div>
+	</body>
+</html>
