@@ -36,7 +36,7 @@
 			}
 
 			$(function(){
-				var address = prompt('请输入您的地址');
+				var address = prompt('请输入您的地址：');
 				var boxnaddress = document.getElementById("box_address")
 				switch(address){
 					case '1' :
@@ -52,7 +52,7 @@
 						boxnaddress.innerHTML = address
 				}
 
-				var name = prompt('请输入您的姓名');
+				var name = prompt('请输入您的姓名：');
 				var boxname = document.getElementById("box_name")
 				switch(name){
 					case '1' :
@@ -201,7 +201,7 @@
 				var scrollNumber0 = new gScrollNumber("#box_son7", {
 					width: 120, // 每个数字元素的宽
 					color: "#020202", // 数字元素的字体颜色
-					fontSize: 170, // 数字元素的字体大小
+					fontSize: 150, // 数字元素的字体大小
 					autoSizeContainerWidth: true, // 自动计算容器宽度 .scroll-number-0 ，如果已经使用css 制定了容器的宽度，此处可设置为false
 					background: "",
 				});
@@ -234,53 +234,50 @@
 
 			#box_address {
 				position: absolute;
-				top: 172px;
+				top: 165px;
 				background-color: #03B630;
 				width: 1080px;
 				height: 90px;
 				font-size: 68px;
-				font-family: PingFang;
 				letter-spacing: 2px;
 				text-align: center;
 				color: white;
+
 			}
 
 			#box_son3 {
 				position: absolute;
-				left: 535px;
-				top: 445px;
+				left: 530px;
+				top: 444px;
 				background-color: #FCFCFC;
-				width: 50px;
+				width: 52px;
 				height: 80px;
-				font-size: 58px;
-				font-family: Medium;
-				font-weight: bold;
+				font-size: 54px;
+				font-weight: 500;
 				color: #929292;
 			}
 
 			#box_son4 {
 				position: absolute;
 				left: 640px;
-				top: 445px;
+				top: 444px;
 				background-color: #FCFCFC;
 				width: 40px;
 				height: 80px;
-				font-size: 58px;
-				font-family: Medium;
-				font-weight: bold;
+				font-size: 54px;
+				font-weight: 500;
 				text-align: right;
 				color: #929292;
 			}
 
 			#box_son5 {
 				position: absolute;
-				left: 140px;
+				left: 130px;
 				top: 530px;
-				width: 200px;
+				width: 205px;
 				height: 165px;
 				background-color: #FCFCFC;
-				font-size: 170px;
-				/* font-family: HylAsl2; */
+				font-size: 150px;
 				font-weight: bold;
 				letter-spacing: 18px;
 				color: #020202;
@@ -288,12 +285,12 @@
 
 			#box_son6 {
 				position: absolute;
-				left: 430px;
+				left: 428px;
 				top: 530px;
 				width: 210px;
 				height: 165px;
 				background-color: #FCFCFC;
-				font-size: 170px;
+				font-size: 150px;
 				font-weight: bold;
 				letter-spacing: 18px;
 				color: #020202;
@@ -311,23 +308,22 @@
 			#box_name {
 				position: absolute;
 				left: 100px;
-				top: 817px;
-				height: 80px;
+				top: 810px;
+				height: 90px;
 				background-color: #FFFFFF;
 				font-size: 68px;
-				font-family: PingFang;
+				font-weight: 500;
 				color: #282828;
 			}
 
 			#box_id {
 				position: absolute;
-				left: 103px;
+				left: 98px;
 				top: 932px;
-				width: 460px;
+				width: 470px;
 				height: 52px;
 				background-color: #FFFFFF;
-				font-size: 46px;
-				font-family: DroidSansFallback;
+				font-size: 44px;
 				color: #8D8D8D;
 			}
 			
@@ -339,33 +335,13 @@
 				height: 125px;
 				border-radius: 80px;
 			}
-
-			@font-face {
-				font-family: Medium;
-				src: url("fonts/FZLTpro.otf");
-			}
-
-			@font-face {
-				font-family: PingFang;
-				src: url("fonts/PingFangSC.ttf");
-			}
-
-			@font-face {
-				font-family: HylAsl2;
-				src: url("fonts/HylAsl2.ttf");
-			}
-
-			@font-face {
-				font-family: DroidSansFallback;
-				src: url("fonts/DroidSansFallback.ttf");
-			}
 		</style>
 	</head>
 	<body>
 		<div id="box">
 			<img src="hesuan.jpg" />
 			<div id="box_address">
-
+				
 			</div>
 			<div id="box_son3">
 			</div>
@@ -378,7 +354,7 @@
 			<div id="box_son7">
 			</div>
 			<div id="box_name">
-
+				
 			</div>
 			<div id="box_id">
 				
